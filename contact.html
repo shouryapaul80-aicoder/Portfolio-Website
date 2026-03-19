@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Shourya Paul — open to PM & strategy roles.">
+  <title>Contact — Shourya Paul</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F5F2ED;
+      --text-dark: #1A1A1A;
+      --text-mid: #5A5A5A;
+      --accent: #C84B31;
+      --accent-light: #F0E6E2;
+      --navy: #1E2D4A;
+      --card-bg: #FFFFFF;
+      --border: #E0DDD8;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text-dark); font-family: 'DM Sans', sans-serif; font-weight: 400; line-height: 1.6; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+
+    .fade-in-section { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in-section.visible { opacity: 1; transform: translateY(0); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .anim-1 { animation: fadeUp 0.6s ease forwards; animation-delay: 0s; opacity: 0; }
+    .anim-2 { animation: fadeUp 0.6s ease forwards; animation-delay: 0.15s; opacity: 0; }
+    .anim-3 { animation: fadeUp 0.6s ease forwards; animation-delay: 0.3s; opacity: 0; }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(245,242,237,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1160px; margin: 0 auto; padding: 0 40px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-monogram { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 24px; color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a { font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 15px; color: var(--text-dark); position: relative; transition: color 0.2s; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.25s ease; }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .nav-linkedin svg { transition: opacity 0.2s; }
+    .nav-linkedin:hover svg { opacity: 0.7; }
+
+    /* WRAP */
+    .page-wrap { max-width: 1160px; margin: 0 auto; padding: 0 40px; }
+
+    /* PAGE HERO */
+    .page-hero { padding: 80px 0 72px; border-bottom: 1px solid var(--border); margin-bottom: 80px; }
+    .section-label { font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-mid); margin-bottom: 12px; }
+    .page-hero h1 { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 72px; line-height: 1.05; color: var(--text-dark); margin-bottom: 16px; }
+    .page-hero p { font-family: 'DM Sans', sans-serif; font-weight: 300; font-size: 18px; color: var(--text-mid); max-width: 500px; }
+
+    /* CONTACT GRID */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; padding-bottom: 100px; }
+
+    /* LEFT — INFO */
+    .contact-info-heading { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 36px; color: var(--text-dark); margin-bottom: 16px; }
+    .contact-info-body { font-family: 'DM Sans', sans-serif; font-weight: 300; font-size: 16px; color: var(--text-mid); line-height: 1.7; margin-bottom: 48px; }
+
+    .contact-methods { display: flex; flex-direction: column; gap: 0; }
+    .contact-method { display: flex; align-items: flex-start; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--border); transition: background 0.2s; }
+    .contact-method:first-child { border-top: 1px solid var(--border); }
+
+    .contact-icon { width: 44px; height: 44px; background: var(--accent-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--accent); }
+    .contact-details h3 { font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-mid); margin-bottom: 4px; }
+    .contact-details a, .contact-details span { font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; color: var(--text-dark); transition: color 0.2s; }
+    .contact-details a:hover { color: var(--accent); }
+
+    /* RIGHT — FORM */
+    .form-heading { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 36px; color: var(--text-dark); margin-bottom: 36px; }
+
+    .form-field { position: relative; margin-bottom: 28px; }
+    .form-input { width: 100%; background: var(--card-bg); border: 1px solid var(--border); border-bottom: 2px solid var(--border); padding: 18px 16px 10px; font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 15px; color: var(--text-dark); outline: none; transition: border-color 0.2s; }
+    .form-input:focus { border-bottom-color: var(--accent); }
+    .form-label { position: absolute; top: 14px; left: 16px; font-family: 'DM Sans', sans-serif; font-weight: 300; font-size: 14px; color: var(--text-mid); pointer-events: none; transition: all 0.2s; }
+    .form-input:focus ~ .form-label,
+    .form-input:not(:placeholder-shown) ~ .form-label { top: 6px; font-size: 11px; letter-spacing: 0.08em; color: var(--accent); }
+    .form-input::placeholder { color: transparent; }
+
+    textarea.form-input { resize: vertical; min-height: 140px; }
+
+    .submit-btn { background: var(--accent); color: white; border: 2px solid var(--accent); padding: 16px 40px; font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 15px; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; transition: background 0.2s; }
+    .submit-btn:hover { background: #a83a22; border-color: #a83a22; }
+
+    .form-success { display: none; background: #e8f5e9; border-left: 4px solid #2D6A4F; padding: 16px 20px; font-family: 'DM Sans', sans-serif; font-size: 15px; color: #2D6A4F; margin-top: 16px; }
+    .form-success.visible { display: block; }
+
+    /* FOOTER */
+    .site-footer { background: var(--navy); padding: 48px 40px; }
+    .footer-inner { max-width: 1160px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+    .footer-copy { font-family: 'DM Sans', sans-serif; font-size: 13px; color: rgba(255,255,255,0.4); }
+    .footer-links { display: flex; gap: 32px; }
+    .footer-links a { font-family: 'DM Sans', sans-serif; font-size: 13px; color: rgba(255,255,255,0.6); transition: color 0.2s; }
+    .footer-links a:hover { color: white; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .page-wrap { padding: 0 24px; }
+      .nav-inner { padding: 0 24px; }
+      .nav-links { gap: 20px; }
+      .page-hero h1 { font-size: 48px; }
+      .page-hero { padding: 48px 0 48px; margin-bottom: 48px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-monogram">SP</a>
+      <ul class="nav-links">
+        <li><a href="work.html">Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+        <li>
+          <a href="https://linkedin.com/in/shourya-paul22" target="_blank" rel="noopener noreferrer" class="nav-linkedin" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#1A1A1A">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-wrap">
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <p class="section-label anim-1">Open to PM &amp; Strategy Roles</p>
+      <h1 class="anim-2">Get In Touch</h1>
+      <p class="anim-3">Whether it's a role, a project, or just a conversation — I'd love to hear from you.</p>
+    </div>
+
+    <!-- CONTACT GRID -->
+    <div class="contact-grid">
+
+      <!-- LEFT: Contact Info -->
+      <div class="contact-info fade-in-section">
+        <h2 class="contact-info-heading">Let's Connect</h2>
+        <p class="contact-info-body">I'm always interested in discussing new opportunities, innovative projects, and collaborations in product management, strategy, and emerging technologies.</p>
+
+        <div class="contact-methods">
+          <div class="contact-method">
+            <div class="contact-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+            </div>
+            <div class="contact-details">
+              <h3>Email</h3>
+              <a href="mailto:shouryapaul80@gmail.com">shouryapaul80@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="contact-method">
+            <div class="contact-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+              </svg>
+            </div>
+            <div class="contact-details">
+              <h3>Phone</h3>
+              <a href="tel:+919205098415">+91 9205098415</a>
+            </div>
+          </div>
+
+          <div class="contact-method">
+            <div class="contact-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+              </svg>
+            </div>
+            <div class="contact-details">
+              <h3>LinkedIn</h3>
+              <a href="https://linkedin.com/in/shourya-paul22" target="_blank" rel="noopener noreferrer">linkedin.com/in/shourya-paul22</a>
+            </div>
+          </div>
+
+          <div class="contact-method">
+            <div class="contact-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+            </div>
+            <div class="contact-details">
+              <h3>Location</h3>
+              <span>Delhi, India</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Form -->
+      <div class="contact-form-wrap fade-in-section">
+        <h2 class="form-heading">Send a Message</h2>
+        <form id="contact-form">
+          <div class="form-field">
+            <input type="text" id="name" name="name" class="form-input" placeholder="Your Name" required>
+            <label for="name" class="form-label">Your Name</label>
+          </div>
+          <div class="form-field">
+            <input type="email" id="email" name="email" class="form-input" placeholder="Email Address" required>
+            <label for="email" class="form-label">Email Address</label>
+          </div>
+          <div class="form-field">
+            <input type="text" id="subject" name="subject" class="form-input" placeholder="Subject" required>
+            <label for="subject" class="form-label">Subject</label>
+          </div>
+          <div class="form-field">
+            <textarea id="message" name="message" class="form-input" placeholder="Your Message" rows="5" required></textarea>
+            <label for="message" class="form-label">Your Message</label>
+          </div>
+          <button type="submit" class="submit-btn">
+            Send Message
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+            </svg>
+          </button>
+          <div class="form-success" id="form-success">Message sent! I'll get back to you soon.</div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2026 Shourya Paul · Delhi, India</span>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="work.html">Work</a>
+        <a href="about.html">About</a>
+        <a href="https://linkedin.com/in/shourya-paul22" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-in-section').forEach(el => observer.observe(el));
+
+    // Form submit (mailto fallback)
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+      const mailto = `mailto:shouryapaul80@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent('From: ' + name + ' (' + email + ')\n\n' + message)}`;
+      window.location.href = mailto;
+      document.getElementById('form-success').classList.add('visible');
+    });
+  </script>
+</body>
+</html>
