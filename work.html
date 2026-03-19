@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shourya Paul's work — AI, case studies, products, data analysis, and articles.">
+  <title>Work — Shourya Paul</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F5F2ED;
+      --text-dark: #1A1A1A;
+      --text-mid: #5A5A5A;
+      --accent: #C84B31;
+      --accent-light: #F0E6E2;
+      --navy: #1E2D4A;
+      --card-bg: #FFFFFF;
+      --border: #E0DDD8;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text-dark); font-family: 'DM Sans', sans-serif; font-weight: 400; line-height: 1.6; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+
+    .fade-in-section { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in-section.visible { opacity: 1; transform: translateY(0); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .anim-1 { animation: fadeUp 0.6s ease forwards; animation-delay: 0s; opacity: 0; }
+    .anim-2 { animation: fadeUp 0.6s ease forwards; animation-delay: 0.15s; opacity: 0; }
+    .anim-3 { animation: fadeUp 0.6s ease forwards; animation-delay: 0.3s; opacity: 0; }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(245,242,237,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1160px; margin: 0 auto; padding: 0 40px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-monogram { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 24px; color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a { font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 15px; color: var(--text-dark); position: relative; transition: color 0.2s; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.25s ease; }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .nav-linkedin svg { transition: opacity 0.2s; }
+    .nav-linkedin:hover svg { opacity: 0.7; }
+
+    /* WRAP */
+    .page-wrap { max-width: 1160px; margin: 0 auto; padding: 0 40px; }
+
+    /* PAGE HERO */
+    .page-hero { padding: 80px 0 56px; }
+    .section-label { font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-mid); margin-bottom: 12px; }
+    .page-hero h1 { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 72px; line-height: 1.05; color: var(--text-dark); margin-bottom: 16px; }
+    .page-hero p { font-family: 'DM Sans', sans-serif; font-weight: 300; font-size: 18px; color: var(--text-mid); max-width: 560px; }
+
+    /* TABS */
+    .tabs-wrap { border-bottom: 1px solid var(--border); margin-bottom: 56px; overflow-x: auto; }
+    .tabs-inner { display: flex; gap: 0; white-space: nowrap; }
+    .tab-btn { font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 14px; color: var(--text-mid); background: none; border: none; padding: 16px 28px; cursor: pointer; border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s; margin-bottom: -1px; }
+    .tab-btn:hover { color: var(--text-dark); }
+    .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 500; }
+
+    /* WORK SECTIONS */
+    .work-section { display: none; }
+    .work-section.active { display: block; }
+
+    .section-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 36px; color: var(--text-dark); margin-bottom: 40px; }
+
+    /* PROJECT CARDS */
+    .project-card { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--border); background: var(--card-bg); margin-bottom: 32px; overflow: hidden; transition: box-shadow 0.2s; }
+    .project-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+    .project-card.reverse { direction: rtl; }
+    .project-card.reverse > * { direction: ltr; }
+
+    .project-img { overflow: hidden; }
+    .project-img img { width: 100%; height: 100%; min-height: 280px; object-fit: cover; display: block; transition: transform 0.4s ease; }
+    .project-card:hover .project-img img { transform: scale(1.03); }
+
+    .project-body { padding: 48px 44px; display: flex; flex-direction: column; justify-content: center; }
+    .project-category { font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .project-body h3 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 26px; color: var(--text-dark); margin-bottom: 16px; line-height: 1.2; }
+    .project-body p { font-family: 'DM Sans', sans-serif; font-weight: 300; font-size: 15px; color: var(--text-mid); line-height: 1.7; margin-bottom: 24px; }
+
+    .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+    .tag { background: var(--accent-light); color: var(--text-dark); padding: 5px 12px; font-family: 'DM Sans', sans-serif; font-size: 12px; border-radius: 2px; }
+
+    .project-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 14px; color: var(--accent); border-bottom: 1px solid var(--accent); padding-bottom: 2px; transition: gap 0.2s; align-self: flex-start; }
+    .project-link:hover { gap: 12px; }
+    .project-link svg { flex-shrink: 0; }
+
+    /* FOOTER */
+    .site-footer { background: var(--navy); padding: 48px 40px; margin-top: 100px; }
+    .footer-inner { max-width: 1160px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+    .footer-copy { font-family: 'DM Sans', sans-serif; font-size: 13px; color: rgba(255,255,255,0.4); }
+    .footer-links { display: flex; gap: 32px; }
+    .footer-links a { font-family: 'DM Sans', sans-serif; font-size: 13px; color: rgba(255,255,255,0.6); transition: color 0.2s; }
+    .footer-links a:hover { color: white; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .page-wrap { padding: 0 24px; }
+      .nav-inner { padding: 0 24px; }
+      .nav-links { gap: 20px; }
+      .page-hero h1 { font-size: 48px; }
+      .page-hero { padding: 48px 0 36px; }
+      .project-card, .project-card.reverse { grid-template-columns: 1fr; direction: ltr; }
+      .project-img img { min-height: 220px; }
+      .project-body { padding: 32px 28px; }
+      .tabs-inner { gap: 0; }
+      .tab-btn { padding: 14px 16px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-monogram">SP</a>
+      <ul class="nav-links">
+        <li><a href="work.html" class="active">Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>
+          <a href="https://linkedin.com/in/shourya-paul22" target="_blank" rel="noopener noreferrer" class="nav-linkedin" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#1A1A1A">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-wrap">
+    <div class="page-hero">
+      <p class="section-label anim-1">Selected Work</p>
+      <h1 class="anim-2">My Work</h1>
+      <p class="anim-3">A collection spanning AI & machine learning, product management, case studies, and data analysis.</p>
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div class="page-wrap">
+    <div class="tabs-wrap">
+      <div class="tabs-inner">
+        <button class="tab-btn active" data-section="ai">AI & Machine Learning</button>
+        <button class="tab-btn" data-section="case-studies">Case Studies</button>
+        <button class="tab-btn" data-section="products">Products</button>
+        <button class="tab-btn" data-section="data-analysis">Data Analysis</button>
+        <button class="tab-btn" data-section="product-docs">Product Docs</button>
+        <button class="tab-btn" data-section="articles">Articles</button>
+      </div>
+    </div>
+
+    <!-- AI & MACHINE LEARNING -->
+    <section class="work-section active fade-in-section" id="ai">
+      <h2 class="section-title">AI &amp; Machine Learning</h2>
+
+      <div class="project-card">
+        <div class="project-img">
+          <img src="assets/images/ai-safety-project.jpg" alt="AI for Safety — YOLO taillight detection">
+        </div>
+        <div class="project-body">
+          <div class="project-category">Computer Vision · Road Safety</div>
+          <h3>AI for Safety</h3>
+          <p>Utilizing OpenCV and YOLO we demonstrated how machine learning can be implemented to detect cars running on highways without their taillights on — a critical road safety intervention.</p>
+          <div class="project-tags">
+            <span class="tag">Computer Vision</span>
+            <span class="tag">YOLO</span>
+            <span class="tag">Road Safety</span>
+          </div>
+          <a href="https://www.linkedin.com/posts/shourya-paul22_computervision-artificialintelligence-roadsafety-activity-7299663944955179015-68c0" target="_blank" rel="noopener noreferrer" class="project-link">
+            View on LinkedIn
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card reverse">
+        <div class="project-img">
+          <img src="assets/images/computer-vision-project.jpg" alt="Computer Vision — YOLO vehicle detection">
+        </div>
+        <div class="project-body">
+          <div class="project-category">Computer Vision · Urban Traffic</div>
+          <h3>Computer Vision</h3>
+          <p>Custom-trained YOLO model detects diverse vehicles in Indian urban traffic, combining specialized auto detection with pre-trained vehicle recognition models for real-world deployment.</p>
+          <div class="project-tags">
+            <span class="tag">Computer Vision</span>
+            <span class="tag">YOLO</span>
+            <span class="tag">AI</span>
+          </div>
+          <a href="https://www.linkedin.com/posts/shourya-paul22_computervision-artificialintelligence-yolo-activity-7268278392544718848-shD4" target="_blank" rel="noopener noreferrer" class="project-link">
+            View on LinkedIn
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-img">
+          <img src="assets/images/aws-deepracer.jpg" alt="AWS DeepRacer — Reinforcement Learning">
+        </div>
+        <div class="project-body">
+          <div class="project-category">Reinforcement Learning · AWS</div>
+          <h3>Reinforcement Learning</h3>
+          <p>AWS DeepRacer project: Trained an autonomous racing model using reinforcement learning, optimizing speed, centerline tracking, and lap progress through custom reward functions.</p>
+          <div class="project-tags">
+            <span class="tag">AWS DeepRacer</span>
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Reinforcement Learning</span>
+          </div>
+          <a href="https://www.linkedin.com/posts/shourya-paul22_aws-deepracer-machinelearning-activity-7224664805670862848-tljV" target="_blank" rel="noopener noreferrer" class="project-link">
+            View on LinkedIn
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card reverse">
+        <div class="project-img">
+          <img src="assets/images/deep-learning-pools.jpg" alt="Deep Learning — Swimming Pool Detection">
+        </div>
+        <div class="project-body">
+          <div class="project-category">Deep Learning · Market Research</div>
+          <h3>Deep Learning</h3>
+          <p>At Hammett, we needed to estimate swimming pools in India's tier 1 cities — no market data existed. We leveraged satellite imagery and deep learning to build our own market sizing model.</p>
+          <div class="project-tags">
+            <span class="tag">Deep Learning</span>
+            <span class="tag">Market Research</span>
+            <span class="tag">Computer Vision</span>
+          </div>
+          <a href="https://www.canva.com/design/DAGFSf-0G0g/5NkrQdqykdFOQzRHUZLCNw/edit" target="_blank" rel="noopener noreferrer" class="project-link">
+            View Deck
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASE STUDIES -->
+    <section class="work-section fade-in-section" id="case-studies">
+      <h2 class="section-title">Case Studies</h2>
+
+      <div class="project-card">
+        <div class="project-img">
+          <img src="assets/images/uber-case-study.jpg" alt="Uber Case Study — Ride Cancellation Reduction">
+        </div>
+        <div class="project-body">
+          <div class="project-category">Product Management · UX</div>
+          <h3>Reducing Ride Cancellations — Uber</h3>
+          <p>During the NextLeap PM program, I focused on the driver's perspective to tackle ride cancellations on Uber, proposing an interface redesign within the driver app grounded in user research.</p>
+          <div class="project-tags">
+            <span class="tag">Product Management</span>
+            <span class="tag">UX Design</span>
+            <span class="tag">Uber</span>
+          </div>
+          <a href="https://drive.google.com/file/d/1ZzSsN4fBumG0JcTfdEVSXrcaaLMtbV8u/view" target="_blank" rel="noopener noreferrer" class="project-link">
+            View Case Study
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card reverse">
+        <div class="project-img">
+          <img src="assets/images/mygate-case-study.jpg" alt="MyGate Case Study — Revenue Optimization">
+        </div>
+        <div class="project-body">
+          <div class="project-category">Product Management · User Research</div>
+          <h3>Increasing MyGate App Revenue</h3>
+          <p>Through rigorous user research with gated community residents, my team identified a new revenue stream — shared e-rickshaw booking — addressing a genuine mobility gap at the last mile.</p>
+          <div class="project-tags">
+            <span class="tag">Product Management</span>
+            <span class="tag">User Research</span>
+            <span class="tag">MyGate</span>
+          </div>
+          <a href="https://drive.google.com/file/d/1lvpJqTCN350QIPVdb3G5_OpX-_9cIcVg/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="project-link">
+            View Presentation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="work-section fade-in-section" id="products">
+      <h2 class="section-title">Products</h2>
+
+      <div class="project-card">
+        <div class="project-img">
+          <img src="assets/images/crm-tool.jpg" alt="CRM Tool — Hammett Lead Management">
+        </div>
+        <div class="project-body">
+          <div class="project-category">Product · CRM · Vibe-coding</div>
+          <h3>CRM Tool — Hammett</h3>
+          <p>Developed a custom CRM to capture and track lead data and optimize the sales funnel at Hammett. Vibe-coded the webapp to life by systematically prompting ChatGPT and DeepSeek — 25% inquiry automation achieved.</p>
+          <div class="project-tags">
+            <span class="tag">CRM</span>
+            <span class="tag">Web Development</span>
+            <span class="tag">Sales Optimization</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DATA ANALYSIS -->
+    <section class="work-section fade-in-section" id="data-analysis">
+      <h2 class="section-title">Data Analysis</h2>
+
+      <div class="project-card">
+        <div class="project-img">
+          <img src="assets/images/powerbi-dashboard.jpg" alt="Power BI Dashboard — Data Analytics">
+        </div>
+        <div class="project-body">
+          <div class="project-category">Data Analytics · Power BI</div>
+          <h3>Power BI Dashboard</h3>
+          <p>Built a data dashboard at Hammett to track company growth and optimize the sales funnel. Leveraged data analysis to identify key trends, improve conversion rates, and drive informed decision-making.</p>
+          <div class="project-tags">
+            <span class="tag">Power BI</span>
+            <span class="tag">Data Analytics</span>
+            <span class="tag">Sales Optimization</span>
+          </div>
+          <a href="https://drive.google.com/file/d/12oJHxWHtB9_PlN8bkyEQbgr2CI6Ok5BW/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="project-link">
+            View Dashboard
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCT DOCS -->
+    <section class="work-section fade-in-section" id="product-docs">
+      <h2 class="section-title">Product Documents</h2>
+
+      <div class="project-card">
+        <div class="project-img">
+          <img src="assets/images/safetipin-wireframes.jpg" alt="Safetipin EmpowHer App Wireframes">
+        </div>
+        <div class="project-body">
+          <div class="project-category">UX Design · Social Impact</div>
+          <h3>Safetipin App Wireframes</h3>
+          <p>Safetipin is a social impact organisation building responsive, inclusive, and safe urban systems. These are high-level wireframes proposed for their new women's safety app, EmpowHer.</p>
+          <div class="project-tags">
+            <span class="tag">UX Design</span>
+            <span class="tag">Wireframes</span>
+            <span class="tag">Social Impact</span>
+          </div>
+          <a href="https://www.canva.com/design/DAGCmDNLayM/3T_BaQSdFbG5-sLngL4EgQ/view" target="_blank" rel="noopener noreferrer" class="project-link">
+            View Wireframes
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card reverse">
+        <div class="project-img">
+          <img src="assets/images/doc2go-prd.jpg" alt="Doc2Go App Product Requirements Document">
+        </div>
+        <div class="project-body">
+          <div class="project-category">PRD · Healthcare</div>
+          <h3>Doc2Go App PRD</h3>
+          <p>A comprehensive product requirements document for a new Doc2Go app, designed to streamline functionality and improve navigation for patients seeking healthcare services.</p>
+          <div class="project-tags">
+            <span class="tag">PRD</span>
+            <span class="tag">Healthcare</span>
+            <span class="tag">Product Management</span>
+          </div>
+          <a href="https://drive.google.com/file/d/19fkD7SqDExT6V-xs21LkjSOcbJlaY-YA/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="project-link">
+            View Document
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARTICLES -->
+    <section class="work-section fade-in-section" id="articles">
+      <h2 class="section-title">Articles</h2>
+
+      <div class="project-card">
+        <div class="project-img">
+          <img src="assets/images/autonomous-vehicles-article.jpg" alt="Autonomous Vehicles Regulation Article">
+        </div>
+        <div class="project-body">
+          <div class="project-category">Article · Technology Policy</div>
+          <h3>Driving into the Future: Regulating Autonomous Vehicles</h3>
+          <p>An in-depth article exploring the regulatory landscape and challenges surrounding autonomous vehicles — examining the intersection of technology, policy, and societal impact.</p>
+          <div class="project-tags">
+            <span class="tag">Autonomous Vehicles</span>
+            <span class="tag">Regulation</span>
+            <span class="tag">Technology Policy</span>
+          </div>
+          <a href="https://www.obhanandassociates.com/blog/driving-into-the-future-regulating-autonomous-vehicles/" target="_blank" rel="noopener noreferrer" class="project-link">
+            Read Article
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2026 Shourya Paul · Delhi, India</span>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://linkedin.com/in/shourya-paul22" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Tab switching
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const workSections = document.querySelectorAll('.work-section');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-section');
+        tabBtns.forEach(b => b.classList.remove('active'));
+        workSections.forEach(s => s.classList.remove('active'));
+        btn.classList.add('active');
+        const section = document.getElementById(target);
+        section.classList.add('active');
+        setTimeout(() => section.classList.add('visible'), 10);
+      });
+    });
+
+    // Scroll fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-in-section').forEach(el => observer.observe(el));
+    document.querySelector('.work-section.active')?.classList.add('visible');
+  </script>
+</body>
+</html>
