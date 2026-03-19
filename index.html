@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shourya Paul — Product Manager, Strategist, Builder. MBA at IIM Ahmedabad. Co-founder at Hammett.">
+  <title>Shourya Paul — PM & Strategy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===================== CSS VARIABLES ===================== */
+    :root {
+      --bg: #F5F2ED;
+      --text-dark: #1A1A1A;
+      --text-mid: #5A5A5A;
+      --accent: #C84B31;
+      --accent-light: #F0E6E2;
+      --navy: #1E2D4A;
+      --card-bg: #FFFFFF;
+      --border: #E0DDD8;
+    }
+
+    /* ===================== RESET & BASE ===================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-dark);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ===================== SCROLL FADE-IN ===================== */
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===================== HERO FADE-UP ANIMATION ===================== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .anim-1 { animation: fadeUp 0.6s ease forwards; animation-delay: 0s; opacity: 0; }
+    .anim-2 { animation: fadeUp 0.6s ease forwards; animation-delay: 0.15s; opacity: 0; }
+    .anim-3 { animation: fadeUp 0.6s ease forwards; animation-delay: 0.3s; opacity: 0; }
+    .anim-4 { animation: fadeUp 0.6s ease forwards; animation-delay: 0.45s; opacity: 0; }
+    .anim-5 { animation: fadeUp 0.6s ease forwards; animation-delay: 0.6s; opacity: 0; }
+
+    /* ===================== SECTION PADDING ===================== */
+    .section-wrap {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* ===================== 1. NAV ===================== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(245, 242, 237, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 40px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-monogram {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 24px;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 15px;
+      color: var(--text-dark);
+      position: relative;
+      transition: color 0.2s;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-linkedin {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-linkedin svg { transition: opacity 0.2s; }
+    .nav-linkedin:hover svg { opacity: 0.7; }
+
+    /* ===================== 2. HERO ===================== */
+    #hero {
+      padding: 80px 0 100px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .hero-image-wrap {
+      transform: rotate(-1.5deg);
+      flex-shrink: 0;
+    }
+
+    .hero-image-wrap img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      display: block;
+      box-shadow: 8px 8px 0px var(--accent);
+    }
+
+    .hero-label {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      color: var(--text-mid);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    h1.hero-name {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 72px;
+      line-height: 1.05;
+      color: var(--text-dark);
+      margin-bottom: 28px;
+    }
+
+    .hero-bio {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 18px;
+      color: var(--text-mid);
+      max-width: 480px;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+
+    .metrics-bar {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 44px;
+      flex-wrap: wrap;
+    }
+
+    .metric {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .metric-number {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 36px;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .metric-label {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      margin-top: 6px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-filled {
+      background: var(--accent);
+      color: white;
+      border: 2px solid var(--accent);
+      padding: 14px 32px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      display: inline-block;
+    }
+
+    .btn-filled:hover {
+      background: #a83a22;
+      border-color: #a83a22;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-dark);
+      border: 2px solid var(--text-dark);
+      padding: 14px 32px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover {
+      background: var(--text-dark);
+      color: white;
+    }
+
+    /* ===================== SECTION LABEL STYLE ===================== */
+    .section-label {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      margin-bottom: 12px;
+    }
+
+    .section-h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+
+    /* ===================== 3. CAREER SNAPSHOT ===================== */
+    #career {
+      padding: 100px 0;
+      background: var(--bg);
+    }
+
+    .career-header {
+      text-align: center;
+      margin-bottom: 72px;
+    }
+
+    .career-header .section-h2 {
+      font-size: 52px;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+    }
+
+    .career-subtext {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      color: var(--text-mid);
+    }
+
+    /* Timeline */
+    .timeline-container {
+      position: relative;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .timeline-center-line {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+      transform: translateX(-50%);
+    }
+
+    .timeline-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+      margin-bottom: 48px;
+      position: relative;
+    }
+
+    .timeline-row.left-side {
+      flex-direction: row;
+    }
+
+    .timeline-row.right-side {
+      flex-direction: row-reverse;
+    }
+
+    .timeline-card-wrap {
+      width: 44%;
+      padding: 0 32px;
+      position: relative;
+    }
+
+    .timeline-spacer {
+      width: 12%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 20px;
+      flex-shrink: 0;
+    }
+
+    .timeline-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .timeline-year {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 12px;
+      color: var(--text-mid);
+      margin-top: 6px;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .timeline-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-top: 4px solid;
+      padding: 24px 28px;
+      position: relative;
+      cursor: default;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .timeline-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    .timeline-card-role {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      margin-bottom: 6px;
+    }
+
+    .timeline-card-company {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+
+    .timeline-card-period {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 13px;
+      color: var(--text-mid);
+    }
+
+    /* Tooltip */
+    .timeline-tooltip {
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      pointer-events: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      background: white;
+      border-left: 4px solid var(--navy);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      padding: 16px 20px;
+      border-radius: 4px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      max-width: 280px;
+      z-index: 10;
+      color: var(--text-dark);
+    }
+
+    .timeline-tooltip.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===================== 4. WORK PHILOSOPHY ===================== */
+    #philosophy {
+      padding: 100px 0;
+      background: white;
+    }
+
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: 30% 70%;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .philosophy-left .section-h2 {
+      font-size: 48px;
+      color: var(--text-dark);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .philosophy-left p {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+
+    .philosophy-steps {
+      list-style: none;
+    }
+
+    .philosophy-step {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      padding: 28px 24px;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.2s ease, border-left 0.2s ease;
+      border-left: 3px solid transparent;
+      cursor: default;
+    }
+
+    .philosophy-step:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .philosophy-step:hover {
+      background: var(--accent-light);
+      border-left-color: var(--accent);
+    }
+
+    .step-number {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 52px;
+      color: var(--accent-light);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 60px;
+      filter: contrast(1.5) brightness(0.85);
+    }
+
+    .philosophy-step:hover .step-number {
+      color: #e5c0b8;
+    }
+
+    .step-content {}
+
+    .step-title {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 18px;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .step-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.65;
+    }
+
+    /* ===================== 5. SKILLS ===================== */
+    #skills {
+      padding: 100px 0;
+      background: var(--bg);
+    }
+
+    .skills-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .skills-header .section-h2 {
+      font-size: 48px;
+      color: var(--text-dark);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .skills-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 40px;
+    }
+
+    .skills-card-heading {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 28px;
+    }
+
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill {
+      background: var(--accent-light);
+      color: var(--text-dark);
+      padding: 8px 16px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      border-radius: 2px;
+      transition: background 0.2s, color 0.2s;
+      cursor: default;
+    }
+
+    .pill:hover {
+      background: var(--navy);
+      color: white;
+    }
+
+    /* ===================== 6. CTA SECTION ===================== */
+    #cta {
+      padding: 120px 0;
+      background: var(--navy);
+      text-align: center;
+    }
+
+    .cta-label {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 24px;
+    }
+
+    h2.cta-heading {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 64px;
+      color: white;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .cta-body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 18px;
+      color: rgba(255,255,255,0.7);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+
+    .btn-cta-filled {
+      background: var(--accent);
+      color: white;
+      border: 2px solid var(--accent);
+      padding: 16px 40px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: inline-block;
+    }
+
+    .btn-cta-filled:hover { background: #a83a22; border-color: #a83a22; }
+
+    .btn-cta-outline {
+      background: transparent;
+      color: white;
+      border: 2px solid rgba(255,255,255,0.4);
+      padding: 16px 40px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 15px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      display: inline-block;
+    }
+
+    .btn-cta-outline:hover {
+      border-color: white;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .cta-contact-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      margin-top: 60px;
+      opacity: 0.5;
+      color: white;
+      flex-wrap: wrap;
+    }
+
+    .cta-contact-row a {
+      color: white;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: opacity 0.2s;
+    }
+
+    .cta-contact-row a:hover { opacity: 0.8; }
+
+    .cta-footer-line {
+      margin-top: 80px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ===================== RESPONSIVE ===================== */
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 300px 1fr;
+        gap: 48px;
+      }
+      h1.hero-name { font-size: 56px; }
+    }
+
+    @media (max-width: 768px) {
+      .section-wrap { padding: 0 24px; }
+      .nav-inner { padding: 0 24px; }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .hero-image-wrap { max-width: 280px; margin: 0 auto; }
+      h1.hero-name { font-size: 48px; }
+
+      .metrics-bar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+
+      .timeline-center-line { display: none; }
+      .timeline-row { display: block; }
+      .timeline-card-wrap { width: 90%; margin: 0 auto 24px; padding: 0; }
+      .timeline-spacer { display: none; }
+
+      .philosophy-grid { grid-template-columns: 1fr; gap: 40px; }
+      .philosophy-left .section-h2 { font-size: 36px; }
+
+      .skills-grid { grid-template-columns: 1fr; }
+
+      h2.cta-heading { font-size: 40px; }
+
+      #hero { padding: 48px 0 60px; }
+      #career, #philosophy, #skills { padding: 60px 0; }
+      #cta { padding: 80px 0; }
+
+      .nav-links { gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== NAV ===================== -->
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-monogram">SP</a>
+      <ul class="nav-links">
+        <li><a href="/work.html">Work</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li>
+          <a href="https://linkedin.com/in/shourya-paul22" target="_blank" rel="noopener noreferrer" class="nav-linkedin" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#1A1A1A">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <section id="hero">
+    <div class="section-wrap">
+      <div class="hero-grid">
+
+        <!-- Left: Photo -->
+        <div class="hero-image-wrap anim-1">
+          <img src="assets/images/iim-sp.jpg" alt="Shourya Paul at IIM Ahmedabad">
+        </div>
+
+        <!-- Right: Text -->
+        <div class="hero-text">
+          <p class="hero-label anim-1">Product Manager &middot; Strategist &middot; Builder</p>
+
+          <h1 class="hero-name anim-2">Hi, I'm<br>Shourya<br>Paul.</h1>
+
+          <p class="hero-bio anim-3">PM &amp; Strategy professional with 5+ years across startups, consulting, and product. Co-founder at Hammett. Patent Analyst for Fortune 500s. Currently MBA at IIM Ahmedabad.</p>
+
+          <div class="metrics-bar anim-4">
+            <div class="metric">
+              <span class="metric-number">30%</span>
+              <span class="metric-label">YoY Revenue Growth</span>
+            </div>
+            <div class="metric">
+              <span class="metric-number">25%</span>
+              <span class="metric-label">Sales Automated</span>
+            </div>
+            <div class="metric">
+              <span class="metric-number">140+</span>
+              <span class="metric-label">Patent Analyses</span>
+            </div>
+            <div class="metric">
+              <span class="metric-number">20+</span>
+              <span class="metric-label">User Interviews</span>
+            </div>
+          </div>
+
+          <div class="hero-ctas anim-5">
+            <a href="/work.html" class="btn-filled">See My Work</a>
+            <a href="resume.pdf" class="btn-outline" download>Download Resume</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CAREER SNAPSHOT ===================== -->
+  <section id="career" class="fade-in-section">
+    <div class="section-wrap">
+      <div class="career-header">
+        <p class="section-label">The Journey</p>
+        <h2 class="section-h2">Career Snapshot</h2>
+        <p class="career-subtext">Hover over each role to see what I built.</p>
+      </div>
+
+      <div class="timeline-container">
+        <div class="timeline-center-line"></div>
+
+        <!-- Row 1: Hammett (Left) + IIM (Right) -->
+        <div class="timeline-row left-side">
+          <div class="timeline-card-wrap">
+            <div class="timeline-card" style="border-top-color: #1E2D4A;">
+              <div class="timeline-card-role">Co-Founder</div>
+              <div class="timeline-card-company">HAMMETT</div>
+              <div class="timeline-card-period">2023 – Present</div>
+              <div class="timeline-tooltip">Built IoT products for pool automation. Grew revenue 30% YoY. Shipped RAG chatbot (25% inquiry automation), Power BI dashboards, and a custom CRM. Led 20+ user interviews to drive product decisions.</div>
+            </div>
+          </div>
+          <div class="timeline-spacer">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2023–Now</div>
+          </div>
+          <div class="timeline-card-wrap">
+            <div class="timeline-card" style="border-top-color: #8B1A2E;">
+              <div class="timeline-card-role">MBA</div>
+              <div class="timeline-card-company">IIM Ahmedabad</div>
+              <div class="timeline-card-period">2025 – Present</div>
+              <div class="timeline-tooltip">Blended PGP program. Focused on strategy, product management, and business leadership.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2: Devain (Left) -->
+        <div class="timeline-row left-side">
+          <div class="timeline-card-wrap">
+            <div class="timeline-card" style="border-top-color: #2D6A4F;">
+              <div class="timeline-card-role">Business Consultant</div>
+              <div class="timeline-card-company">Devain Healthcare</div>
+              <div class="timeline-card-period">2023 – 2024</div>
+              <div class="timeline-tooltip">Launched a hospital discovery platform. Led product roadmap, SEO improvements, and scoped the mobile app for next phase.</div>
+            </div>
+          </div>
+          <div class="timeline-spacer">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2023–2024</div>
+          </div>
+          <div class="timeline-card-wrap"></div>
+        </div>
+
+        <!-- Row 3: Obhan Mason (Left) -->
+        <div class="timeline-row left-side">
+          <div class="timeline-card-wrap">
+            <div class="timeline-card" style="border-top-color: #C84B31;">
+              <div class="timeline-card-role">Senior Analyst</div>
+              <div class="timeline-card-company">Obhan Mason</div>
+              <div class="timeline-card-period">2021 – 2023</div>
+              <div class="timeline-tooltip">140+ patentability analyses for Fortune 500 clients in mobility &amp; EV. Conducted teardown analysis for 10+ litigation cases. Built AI policy to streamline patent drafting.</div>
+            </div>
+          </div>
+          <div class="timeline-spacer">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2021–2023</div>
+          </div>
+          <div class="timeline-card-wrap"></div>
+        </div>
+
+        <!-- Row 4: Dyson (Left) -->
+        <div class="timeline-row left-side">
+          <div class="timeline-card-wrap">
+            <div class="timeline-card" style="border-top-color: #6B5B95;">
+              <div class="timeline-card-role">Engineer I</div>
+              <div class="timeline-card-company">Dyson</div>
+              <div class="timeline-card-period">2020 – 2021</div>
+              <div class="timeline-tooltip">Root-cause analysis of appliance failures. Implemented maintenance practices during COVID, reducing downtime by 8%.</div>
+            </div>
+          </div>
+          <div class="timeline-spacer">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2020–2021</div>
+          </div>
+          <div class="timeline-card-wrap"></div>
+        </div>
+
+        <!-- Row 5: DTU (Right) -->
+        <div class="timeline-row right-side">
+          <div class="timeline-card-wrap">
+            <div class="timeline-card" style="border-top-color: #4A3728;">
+              <div class="timeline-card-role">B.Tech Mechanical</div>
+              <div class="timeline-card-company">Delhi Tech. University</div>
+              <div class="timeline-card-period">2016 – 2020</div>
+              <div class="timeline-tooltip">7.7 GPA. Published research paper at SAE US World Congress. Led sponsorship for EV Formula Student team, securing 8+ lakh INR.</div>
+            </div>
+          </div>
+          <div class="timeline-spacer">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2016–2020</div>
+          </div>
+          <div class="timeline-card-wrap"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WORK PHILOSOPHY ===================== -->
+  <section id="philosophy" class="fade-in-section">
+    <div class="section-wrap">
+      <div class="philosophy-grid">
+
+        <div class="philosophy-left">
+          <p class="section-label">How I Work</p>
+          <h2 class="section-h2">First Principles.<br>Always.</h2>
+          <p>I don't believe in guesswork. Every solution I build is grounded in evidence, shaped by constraints, and tested against reality.</p>
+        </div>
+
+        <div class="philosophy-right">
+          <ul class="philosophy-steps">
+            <li class="philosophy-step">
+              <span class="step-number">01</span>
+              <div class="step-content">
+                <div class="step-title">Understand the Core Problem</div>
+                <div class="step-desc">Start with first principles. What is actually broken and for whom? I resist jumping to solutions before the problem is fully mapped.</div>
+              </div>
+            </li>
+            <li class="philosophy-step">
+              <span class="step-number">02</span>
+              <div class="step-content">
+                <div class="step-title">Collect Evidence</div>
+                <div class="step-desc">User interviews, market research, competitor analysis, and data. I talk to real people before writing a single requirement.</div>
+              </div>
+            </li>
+            <li class="philosophy-step">
+              <span class="step-number">03</span>
+              <div class="step-content">
+                <div class="step-title">Work Out a Solution Within Constraints</div>
+                <div class="step-desc">Good solutions aren't perfect — they're right for the time, team, and resources available. I design with trade-offs in mind.</div>
+              </div>
+            </li>
+            <li class="philosophy-step">
+              <span class="step-number">04</span>
+              <div class="step-content">
+                <div class="step-title">Align Stakeholders</div>
+                <div class="step-desc">Build-in-silence fails. I bring in legal, ops, engineering, and leadership early to shape and de-risk the path forward.</div>
+              </div>
+            </li>
+            <li class="philosophy-step">
+              <span class="step-number">05</span>
+              <div class="step-content">
+                <div class="step-title">Build & Ship</div>
+                <div class="step-desc">Move fast with quality. Whether vibe-coding a CRM or shipping an IoT product, I bias toward doing over debating.</div>
+              </div>
+            </li>
+            <li class="philosophy-step">
+              <span class="step-number">06</span>
+              <div class="step-content">
+                <div class="step-title">Learn, Iterate & Scale</div>
+                <div class="step-desc">Post-launch data, NPS, and funnel metrics tell the real story. I close the loop and push for continuous improvement.</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SKILLS ===================== -->
+  <section id="skills" class="fade-in-section">
+    <div class="section-wrap">
+      <div class="skills-header">
+        <p class="section-label">What I Bring</p>
+        <h2 class="section-h2">Skills &amp; Tools</h2>
+      </div>
+
+      <div class="skills-grid">
+        <!-- Tools -->
+        <div class="skills-card">
+          <div class="skills-card-heading">Tools &amp; Technology</div>
+          <div class="pills">
+            <span class="pill">Claude AI</span>
+            <span class="pill">n8n (Automation)</span>
+            <span class="pill">Figma</span>
+            <span class="pill">Excel / Power BI</span>
+            <span class="pill">PowerPoint</span>
+            <span class="pill">SQL</span>
+            <span class="pill">Replit / Vibe-coding</span>
+            <span class="pill">OpenAI / RAG</span>
+            <span class="pill">AWS</span>
+            <span class="pill">Google Analytics</span>
+          </div>
+        </div>
+
+        <!-- Management -->
+        <div class="skills-card">
+          <div class="skills-card-heading">Strategy &amp; Management</div>
+          <div class="pills">
+            <span class="pill">Market Research</span>
+            <span class="pill">GTM Strategy</span>
+            <span class="pill">Stakeholder Management</span>
+            <span class="pill">User Research</span>
+            <span class="pill">Product Roadmapping</span>
+            <span class="pill">Competitive Analysis</span>
+            <span class="pill">PRD Writing</span>
+            <span class="pill">Patent Analytics</span>
+            <span class="pill">Data Analysis</span>
+            <span class="pill">0→1 Product Building</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA ===================== -->
+  <section id="cta" class="fade-in-section">
+    <div class="section-wrap">
+      <p class="cta-label">Open to PM &amp; Strategy Roles</p>
+      <h2 class="cta-heading">Let's Build<br>Something Great.</h2>
+      <p class="cta-body">Whether you're building a product from scratch, entering a new market, or solving a hard problem — I'd love to be part of it.</p>
+
+      <div class="cta-buttons">
+        <a href="mailto:shouryapaul80@gmail.com" class="btn-cta-filled">Get In Touch</a>
+        <a href="/work.html" class="btn-cta-outline">See My Work</a>
+      </div>
+
+      <div class="cta-contact-row">
+        <a href="https://linkedin.com/in/shourya-paul22" target="_blank" rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+          </svg>
+          LinkedIn
+        </a>
+        <a href="tel:+919205098415">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+          </svg>
+          +91-9205098415
+        </a>
+        <a href="mailto:shouryapaul80@gmail.com">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+          shouryapaul80@gmail.com
+        </a>
+      </div>
+
+      <p class="cta-footer-line">© 2026 Shourya Paul &middot; Delhi, India</p>
+    </div>
+  </section>
+
+  <!-- ===================== JS ===================== -->
+  <script>
+    // 1. Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // 2. Timeline card hover — show/hide detail tooltip
+    document.querySelectorAll('.timeline-card').forEach(card => {
+      const tooltip = card.querySelector('.timeline-tooltip');
+      if (!tooltip) return;
+      card.addEventListener('mouseenter', () => tooltip.classList.add('active'));
+      card.addEventListener('mouseleave', () => tooltip.classList.remove('active'));
+    });
+
+    // 3. Scroll-triggered fade-in for sections
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in-section').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
