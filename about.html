@@ -43,6 +43,9 @@
     .nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.25s ease; }
     .nav-links a:hover, .nav-links a.active { color: var(--accent); }
     .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .nav-resume { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; color: var(--accent) !important; border: 1px solid var(--accent); padding: 5px 14px; border-radius: 2px; transition: background 0.2s, color 0.2s; }
+    .nav-resume:hover { background: var(--accent); color: white !important; }
+    .nav-resume::after { display: none !important; }
     .nav-linkedin svg { transition: opacity 0.2s; }
     .nav-linkedin:hover svg { opacity: 0.7; }
 
@@ -147,6 +150,7 @@
         <li><a href="work.html">Work</a></li>
         <li><a href="about.html" class="active">About</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="https://iima1-my.sharepoint.com/:w:/g/personal/bpgp25shourya_iima_ac_in/IQBRQEPeNV-XToEo9DGmGY9GAXeZsDJCK5v2bTV4183C_gU?e=xTIPM1" target="_blank" rel="noopener noreferrer" class="nav-resume">Resume</a></li>
         <li>
           <a href="https://linkedin.com/in/shourya-paul22" target="_blank" rel="noopener noreferrer" class="nav-linkedin" aria-label="LinkedIn">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="#1A1A1A">
