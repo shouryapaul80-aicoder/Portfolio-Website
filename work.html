@@ -43,6 +43,9 @@
     .nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.25s ease; }
     .nav-links a:hover, .nav-links a.active { color: var(--accent); }
     .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .nav-resume { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; color: var(--accent) !important; border: 1px solid var(--accent); padding: 5px 14px; border-radius: 2px; transition: background 0.2s, color 0.2s; }
+    .nav-resume:hover { background: var(--accent); color: white !important; }
+    .nav-resume::after { display: none !important; }
     .nav-linkedin svg { transition: opacity 0.2s; }
     .nav-linkedin:hover svg { opacity: 0.7; }
 
@@ -123,6 +126,7 @@
         <li><a href="work.html" class="active">Work</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="https://iima1-my.sharepoint.com/:w:/g/personal/bpgp25shourya_iima_ac_in/IQBRQEPeNV-XToEo9DGmGY9GAXeZsDJCK5v2bTV4183C_gU?e=xTIPM1" target="_blank" rel="noopener noreferrer" class="nav-resume">Resume</a></li>
         <li>
           <a href="https://linkedin.com/in/shourya-paul22" target="_blank" rel="noopener noreferrer" class="nav-linkedin" aria-label="LinkedIn">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="#1A1A1A">
@@ -139,7 +143,7 @@
     <div class="page-hero">
       <p class="section-label anim-1">Selected Work</p>
       <h1 class="anim-2">My Work</h1>
-      <p class="anim-3">A collection spanning AI & machine learning, product management, case studies, and data analysis.</p>
+      <p class="anim-3">A collection spanning AI & machine learning, strategy, product management, and data analysis.</p>
     </div>
   </div>
 
@@ -148,7 +152,7 @@
     <div class="tabs-wrap">
       <div class="tabs-inner">
         <button class="tab-btn active" data-section="ai">AI & Machine Learning</button>
-        <button class="tab-btn" data-section="case-studies">Case Studies</button>
+        <button class="tab-btn" data-section="case-studies">Strategy</button>
         <button class="tab-btn" data-section="products">Products</button>
         <button class="tab-btn" data-section="data-analysis">Data Analysis</button>
         <button class="tab-btn" data-section="product-docs">Product Docs</button>
@@ -162,6 +166,26 @@
 
       <div class="project-card">
         <div class="project-img">
+          <img src="assets/images/rag-chatbot-n8n.png" alt="RAG Gen-AI Chatbot — n8n Sales Automation">
+        </div>
+        <div class="project-body">
+          <div class="project-category">Generative AI · Sales Automation</div>
+          <h3>RAG-Based Gen-AI Sales Chatbot</h3>
+          <p>Built a RAG-based Gen-AI chatbot for sales operations at Hammett using n8n; automated 25% of routine inquiries and improved lead qualification by surfacing contextual product information in real time.</p>
+          <div class="project-tags">
+            <span class="tag">RAG</span>
+            <span class="tag">Generative AI</span>
+            <span class="tag">n8n</span>
+            <span class="tag">Sales Automation</span>
+          </div>
+          <span class="project-link" style="cursor:default; opacity:0.5;">
+            Coming Soon
+          </span>
+        </div>
+      </div>
+
+      <div class="project-card reverse">
+        <div class="project-img">
           <img src="assets/images/ai-safety-project.jpg" alt="AI for Safety — YOLO taillight detection">
         </div>
         <div class="project-body">
@@ -174,26 +198,6 @@
             <span class="tag">Road Safety</span>
           </div>
           <a href="https://www.linkedin.com/posts/shourya-paul22_computervision-artificialintelligence-roadsafety-activity-7299663944955179015-68c0" target="_blank" rel="noopener noreferrer" class="project-link">
-            View on LinkedIn
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="project-card reverse">
-        <div class="project-img">
-          <img src="assets/images/computer-vision-project.jpg" alt="Computer Vision — YOLO vehicle detection">
-        </div>
-        <div class="project-body">
-          <div class="project-category">Computer Vision · Urban Traffic</div>
-          <h3>Computer Vision</h3>
-          <p>Custom-trained YOLO model detects diverse vehicles in Indian urban traffic, combining specialized auto detection with pre-trained vehicle recognition models for real-world deployment.</p>
-          <div class="project-tags">
-            <span class="tag">Computer Vision</span>
-            <span class="tag">YOLO</span>
-            <span class="tag">AI</span>
-          </div>
-          <a href="https://www.linkedin.com/posts/shourya-paul22_computervision-artificialintelligence-yolo-activity-7268278392544718848-shD4" target="_blank" rel="noopener noreferrer" class="project-link">
             View on LinkedIn
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
           </a>
@@ -243,9 +247,29 @@
 
     <!-- CASE STUDIES -->
     <section class="work-section fade-in-section" id="case-studies">
-      <h2 class="section-title">Case Studies</h2>
+      <h2 class="section-title">Strategy</h2>
 
       <div class="project-card">
+        <div class="project-img">
+          <img src="assets/images/fyn-gtm-strategy.png" alt="Market Research and GTM Strategy — FYN EV">
+        </div>
+        <div class="project-body">
+          <div class="project-category">Market Research · GTM Strategy</div>
+          <h3>Should we build this or not?</h3>
+          <p>Conducted in-depth market research and developed a go-to-market strategy for an EV mobility startup, identifying target segments, competitive positioning, and channel strategy to drive market entry and growth.</p>
+          <div class="project-tags">
+            <span class="tag">Market Research</span>
+            <span class="tag">GTM Strategy</span>
+            <span class="tag">EV Mobility</span>
+          </div>
+          <a href="https://www.canva.com/design/DAHEdqDLyAw/g2ppC7Pf_6YpbYzVKR4AkQ/view?utm_content=DAHEdqDLyAw&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h68e1a0bcc5" target="_blank" rel="noopener noreferrer" class="project-link">
+            View Presentation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card reverse">
         <div class="project-img">
           <img src="assets/images/uber-case-study.jpg" alt="Uber Case Study — Ride Cancellation Reduction">
         </div>
@@ -265,7 +289,7 @@
         </div>
       </div>
 
-      <div class="project-card reverse">
+      <div class="project-card">
         <div class="project-img">
           <img src="assets/images/mygate-case-study.jpg" alt="MyGate Case Study — Revenue Optimization">
         </div>
@@ -297,7 +321,7 @@
         <div class="project-body">
           <div class="project-category">Product · CRM · Vibe-coding</div>
           <h3>CRM Tool — Hammett</h3>
-          <p>Developed a custom CRM to capture and track lead data and optimize the sales funnel at Hammett. Vibe-coded the webapp to life by systematically prompting ChatGPT and DeepSeek — 25% inquiry automation achieved.</p>
+          <p>Developed a custom CRM to capture and track lead data and optimize the sales funnel at Hammett. Vibe-coded the webapp to life by systematically prompting Claude and Building on Replit environment. To improve data accuracy, feedback rates and rolling out loyalty point features.</p>
           <div class="project-tags">
             <span class="tag">CRM</span>
             <span class="tag">Web Development</span>
@@ -342,14 +366,14 @@
         </div>
         <div class="project-body">
           <div class="project-category">UX Design · Social Impact</div>
-          <h3>Safetipin App Wireframes</h3>
-          <p>Safetipin is a social impact organisation building responsive, inclusive, and safe urban systems. These are high-level wireframes proposed for their new women's safety app, EmpowHer.</p>
+          <h3>DriveSafe Wireframes</h3>
+          <p>Drive Safe is a dashboard that helps truck owners identify dangerous driving behavior by their drivers, enabling better compensation planning and decisions on which drivers require retraining.</p>
           <div class="project-tags">
             <span class="tag">UX Design</span>
             <span class="tag">Wireframes</span>
             <span class="tag">Social Impact</span>
           </div>
-          <a href="https://www.canva.com/design/DAGCmDNLayM/3T_BaQSdFbG5-sLngL4EgQ/view" target="_blank" rel="noopener noreferrer" class="project-link">
+          <a href="https://www.figma.com/make/bgrivqky4MkwuRyUEQD8fF/DriveSafe-Wireframe-Design?t=lLCighvI18Bik037-20&fullscreen=1" target="_blank" rel="noopener noreferrer" class="project-link">
             View Wireframes
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
           </a>
