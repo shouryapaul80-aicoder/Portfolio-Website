@@ -125,6 +125,19 @@
     .nav-links a:hover { color: var(--accent); }
     .nav-links a:hover::after { width: 100%; }
 
+    .nav-resume {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent) !important;
+      border: 1px solid var(--accent);
+      padding: 5px 14px;
+      border-radius: 2px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-resume:hover { background: var(--accent); color: white !important; }
+    .nav-resume::after { display: none !important; }
+
     .nav-linkedin {
       display: flex;
       align-items: center;
@@ -403,33 +416,6 @@
       font-weight: 300;
       font-size: 13px;
       color: var(--text-mid);
-    }
-
-    /* Tooltip */
-    .timeline-tooltip {
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 0.25s ease, transform 0.25s ease;
-      pointer-events: none;
-      position: absolute;
-      top: calc(100% + 8px);
-      left: 0;
-      background: white;
-      border-left: 4px solid var(--navy);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-      padding: 16px 20px;
-      border-radius: 4px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      line-height: 1.6;
-      max-width: 280px;
-      z-index: 10;
-      color: var(--text-dark);
-    }
-
-    .timeline-tooltip.active {
-      opacity: 1;
-      transform: translateY(0);
     }
 
     /* ===================== 4. WORK PHILOSOPHY ===================== */
@@ -741,6 +727,7 @@
         <li><a href="/work.html">Work</a></li>
         <li><a href="/about.html">About</a></li>
         <li><a href="/contact.html">Contact</a></li>
+        <li><a href="https://iima1-my.sharepoint.com/:w:/g/personal/bpgp25shourya_iima_ac_in/IQBRQEPeNV-XToEo9DGmGY9GAXeZsDJCK5v2bTV4183C_gU?e=xTIPM1" target="_blank" rel="noopener noreferrer" class="nav-resume">Resume</a></li>
         <li>
           <a href="https://linkedin.com/in/shourya-paul22" target="_blank" rel="noopener noreferrer" class="nav-linkedin" aria-label="LinkedIn">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="#1A1A1A">
@@ -768,30 +755,11 @@
 
           <h1 class="hero-name anim-2">Hi, I'm<br>Shourya<br>Paul.</h1>
 
-          <p class="hero-bio anim-3">PM &amp; Strategy professional with 5+ years across startups, consulting, and product. Co-founder at Hammett. Patent Analyst for Fortune 500s. Currently MBA at IIM Ahmedabad.</p>
+          <p class="hero-bio anim-3">A dedicated and innovative professional with a passion for business growth. I bring a unique blend of entrepreneurial spirit and technical acumen. Eager to apply my skills, I aim to drive success and contribute to business and product goals. Currently at IIM A</p>
 
-          <div class="metrics-bar anim-4">
-            <div class="metric">
-              <span class="metric-number">30%</span>
-              <span class="metric-label">YoY Revenue Growth</span>
-            </div>
-            <div class="metric">
-              <span class="metric-number">25%</span>
-              <span class="metric-label">Sales Automated</span>
-            </div>
-            <div class="metric">
-              <span class="metric-number">140+</span>
-              <span class="metric-label">Patent Analyses</span>
-            </div>
-            <div class="metric">
-              <span class="metric-number">20+</span>
-              <span class="metric-label">User Interviews</span>
-            </div>
-          </div>
-
-          <div class="hero-ctas anim-5">
+          <div class="hero-ctas anim-4">
             <a href="/work.html" class="btn-filled">See My Work</a>
-            <a href="resume.pdf" class="btn-outline" download>Download Resume</a>
+            <a href="https://iima1-my.sharepoint.com/:w:/g/personal/bpgp25shourya_iima_ac_in/IQBRQEPeNV-XToEo9DGmGY9GAXeZsDJCK5v2bTV4183C_gU?e=xTIPM1" class="btn-outline" target="_blank" rel="noopener noreferrer">Download Resume</a>
           </div>
         </div>
 
@@ -818,7 +786,6 @@
               <div class="timeline-card-role">Co-Founder</div>
               <div class="timeline-card-company">HAMMETT</div>
               <div class="timeline-card-period">2023 – Present</div>
-              <div class="timeline-tooltip">Built IoT products for pool automation. Grew revenue 30% YoY. Shipped RAG chatbot (25% inquiry automation), Power BI dashboards, and a custom CRM. Led 20+ user interviews to drive product decisions.</div>
             </div>
           </div>
           <div class="timeline-spacer">
@@ -830,26 +797,8 @@
               <div class="timeline-card-role">MBA</div>
               <div class="timeline-card-company">IIM Ahmedabad</div>
               <div class="timeline-card-period">2025 – Present</div>
-              <div class="timeline-tooltip">Blended PGP program. Focused on strategy, product management, and business leadership.</div>
             </div>
           </div>
-        </div>
-
-        <!-- Row 2: Devain (Left) -->
-        <div class="timeline-row left-side">
-          <div class="timeline-card-wrap">
-            <div class="timeline-card" style="border-top-color: #2D6A4F;">
-              <div class="timeline-card-role">Business Consultant</div>
-              <div class="timeline-card-company">Devain Healthcare</div>
-              <div class="timeline-card-period">2023 – 2024</div>
-              <div class="timeline-tooltip">Launched a hospital discovery platform. Led product roadmap, SEO improvements, and scoped the mobile app for next phase.</div>
-            </div>
-          </div>
-          <div class="timeline-spacer">
-            <div class="timeline-dot"></div>
-            <div class="timeline-year">2023–2024</div>
-          </div>
-          <div class="timeline-card-wrap"></div>
         </div>
 
         <!-- Row 3: Obhan Mason (Left) -->
@@ -859,7 +808,6 @@
               <div class="timeline-card-role">Senior Analyst</div>
               <div class="timeline-card-company">Obhan Mason</div>
               <div class="timeline-card-period">2021 – 2023</div>
-              <div class="timeline-tooltip">140+ patentability analyses for Fortune 500 clients in mobility &amp; EV. Conducted teardown analysis for 10+ litigation cases. Built AI policy to streamline patent drafting.</div>
             </div>
           </div>
           <div class="timeline-spacer">
@@ -876,7 +824,6 @@
               <div class="timeline-card-role">Engineer I</div>
               <div class="timeline-card-company">Dyson</div>
               <div class="timeline-card-period">2020 – 2021</div>
-              <div class="timeline-tooltip">Root-cause analysis of appliance failures. Implemented maintenance practices during COVID, reducing downtime by 8%.</div>
             </div>
           </div>
           <div class="timeline-spacer">
@@ -893,7 +840,6 @@
               <div class="timeline-card-role">B.Tech Mechanical</div>
               <div class="timeline-card-company">Delhi Tech. University</div>
               <div class="timeline-card-period">2016 – 2020</div>
-              <div class="timeline-tooltip">7.7 GPA. Published research paper at SAE US World Congress. Led sponsorship for EV Formula Student team, securing 8+ lakh INR.</div>
             </div>
           </div>
           <div class="timeline-spacer">
@@ -1062,13 +1008,6 @@
       });
     });
 
-    // 2. Timeline card hover — show/hide detail tooltip
-    document.querySelectorAll('.timeline-card').forEach(card => {
-      const tooltip = card.querySelector('.timeline-tooltip');
-      if (!tooltip) return;
-      card.addEventListener('mouseenter', () => tooltip.classList.add('active'));
-      card.addEventListener('mouseleave', () => tooltip.classList.remove('active'));
-    });
 
     // 3. Scroll-triggered fade-in for sections
     const observer = new IntersectionObserver((entries) => {
